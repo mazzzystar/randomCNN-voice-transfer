@@ -1,0 +1,5 @@
+pip
+scikit-image
+librosa
+pandas
+matplotlib
