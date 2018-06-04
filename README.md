@@ -53,6 +53,5 @@ It seems `texture gram along time-axis` really captured something, you can check
 python vctk_identify
 ```
 
-## Citation
-If you publish work based on Deep Expression, please cite:
-https://github.com/fancoo/randomCNN-voice-transfer
+## Author
+Ke Fang
