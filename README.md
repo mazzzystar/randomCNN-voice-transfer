@@ -7,10 +7,10 @@ We aim to:
 ![](picture/purpose.png)
 
 ## Highlight of my work
-* Converting audio into spectrogram by `librosa` to make it more image-like, then use 2-D CONV rather than 1-D for training.
-* Compute grams over time-axis by merging frequency dim and CHANNELS dim together.
-* Training fast. 5-10 minutes to train and transfer for only 1 GPU.
-* Do not need dataset, you can transfer any 2 pieces of audio.(But some format of audio may occur error, then you should `sudo apt-get install libav-tools`)
+* Use **2-D CONV** rather than 1-D for audio spectrogram.
+* Compute **grams over time-axis**.
+* **Training fast**. 5-10 minutes to train and transfer on 1 single GPU(Tesla P40).
+* **Do not need dataset!** You can transfer any 2 pieces of audio.(But some format of audio may occur error, then you should `sudo apt-get install libav-tools`)
 
 ## Performance compared with other works
 Some of other projects with audio results are as below.
