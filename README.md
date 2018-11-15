@@ -25,7 +25,7 @@ Some of other projects with audio results are as below.
 To sum up, our results is far better than the original `random CNN` results, which use the same dataset (only two audio) as we did. For those pre-trained deep neural network based on huge dataset, our results is comparable, and can be traind in 5 minutes, without using any outer dataset.(**But still, all these conclusion are based on human taste.**)
 
 ## Results
-**You can listen to my current result  now !** It's on [soundcloud.com](https://soundcloud.com/mazzzystar/sets).
+**You can listen to my current result  now !** It's on soundcloud, [link1](https://soundcloud.com/mazzzystar/sets/stairway2nightcall), [link2](https://soundcloud.com/mazzzystar/sets/boy-girl-transfer-v1-0-shorter).
 
 The generated spectrogram compared with `content` and `style`.
 ![](picture/gen.png)
