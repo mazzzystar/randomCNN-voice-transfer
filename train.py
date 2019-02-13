@@ -107,7 +107,7 @@ for epoch in range(1, num_epochs + 1):
 
 
 gen_spectrum = a_G_var.cpu().data.numpy().squeeze()
-gen_audio_C = "style_transfer_CNN_C.wav"
+gen_audio_C = "boy18_to_girl52.wav"
 spectrum2wav(gen_spectrum, sr, gen_audio_C)
 
 plt.figure()
