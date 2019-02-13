@@ -96,9 +96,9 @@ for epoch in range(1, num_epochs + 1):
         print("{} {}% {} content_loss:{:4f} style_loss:{:4f} total_loss:{:4f}".format(epoch,
                                                                                       epoch / num_epochs * 100,
                                                                                       timeSince(start),
-                                                                                      content_loss.data[0],
-                                                                                      style_loss.data[0], loss.data[0]))
-        current_loss += loss.data[0]
+                                                                                      content_loss.item(),
+                                                                                      style_loss.item(), loss.item()))
+        current_loss += loss.item()
 
     # Add current loss avg to list of losses
     if epoch % plot_every == 0:
