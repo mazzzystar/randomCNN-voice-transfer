@@ -52,6 +52,3 @@ It seems `texture gram along time-axis` really captured something, you can check
 ```
 python vctk_identify
 ```
-
-## Author
-Ke Fang
