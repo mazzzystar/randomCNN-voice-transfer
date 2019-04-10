@@ -23,13 +23,6 @@ print(N_SAMPLES)
 print(N_CHANNELS)
 
 
-if N_SAMPLES > a_content.shape[1]:
-    a_content = np.append(a_content, np.zeros((a_content.shape[0], (N_SAMPLES - a_content.shape[1]))), 1)
-
-if N_SAMPLES > a_style.shape[1]:
-    a_style = np.append(a_style, np.zeros((a_style.shape[0], (N_SAMPLES - a_style.shape[1]))), 1)
-
-
 a_content_torch = torch.from_numpy(a_content)[None, None, :, :]
 if cuda:
     a_content_torch = a_content_torch.cuda()
