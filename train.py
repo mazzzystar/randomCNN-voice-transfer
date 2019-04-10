@@ -17,12 +17,6 @@ STYLE_FILENAME = basepath + "girl52.wav"
 a_content, sr = wav2spectrum(CONTENT_FILENAME)
 a_style, sr = wav2spectrum(STYLE_FILENAME)
 
-N_SAMPLES = max(a_content.shape[1], a_style.shape[1])
-
-print(N_SAMPLES)
-print(N_CHANNELS)
-
-
 a_content_torch = torch.from_numpy(a_content)[None, None, :, :]
 if cuda:
     a_content_torch = a_content_torch.cuda()
