@@ -42,7 +42,9 @@ a_S = model(a_S_var)
 
 # Optimizer
 learning_rate = 0.002
-a_G_var = Variable(torch.randn(a_content_torch.shape).cuda() * 1e-3, requires_grad=True)
+a_G_var = Variable(torch.randn(a_content_torch.shape) * 1e-3, requires_grad=True)
+if cuda:
+    a_G_var = a_G_var.cuda()
 optimizer = torch.optim.Adam([a_G_var])
 
 # coefficient of content and style
