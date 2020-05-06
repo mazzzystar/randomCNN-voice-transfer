@@ -6,13 +6,18 @@ from utils import *
 from model import *
 import time
 import math
+import argparse
 cuda = True if torch.cuda.is_available() else False
 
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('-content', help='Content input')
+parser.add_argument('-style', help='Style input')
+args = parser.parse_args()
 
 basepath = "input/"
 
-CONTENT_FILENAME = basepath + "boy18.wav"
-STYLE_FILENAME = basepath + "girl52.wav"
+CONTENT_FILENAME = basepath + args.content
+STYLE_FILENAME = basepath + args.style
 
 a_content, sr = wav2spectrum(CONTENT_FILENAME)
 a_style, sr = wav2spectrum(STYLE_FILENAME)
@@ -96,7 +101,7 @@ for epoch in range(1, num_epochs + 1):
 
 
 gen_spectrum = a_G_var.cpu().data.numpy().squeeze()
-gen_audio_C = "boy18_to_girl52.wav"
+gen_audio_C = args.content + "_to_" +args.style + ".wav"
 spectrum2wav(gen_spectrum, sr, gen_audio_C)
 
 plt.figure()
