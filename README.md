@@ -36,7 +36,7 @@ Compare the spectrogram of `gen` with `content` and `style`(X axis represents `T
 
 ## Reproduce it yourself
 ```
-python train.py -content input/boy.wav -style input/girl.wav
+python train.py
 ```
 Tips: change `3x1` CONV to `3x3` CONV can get smoother generated spectrogram.
 

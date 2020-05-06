@@ -21,6 +21,7 @@ parser.add_argument('-learning_rate', type=float, default = 0.002)
 parser.add_argument('-output', help='Output file name. Default is "output"', default = 'output')
 args = parser.parse_args()
 
+
 CONTENT_FILENAME = args.content
 STYLE_FILENAME = args.style
 
