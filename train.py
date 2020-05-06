@@ -14,10 +14,8 @@ parser.add_argument('-content', help='Content input')
 parser.add_argument('-style', help='Style input')
 args = parser.parse_args()
 
-basepath = "input/"
-
-CONTENT_FILENAME = basepath + args.content
-STYLE_FILENAME = basepath + args.style
+CONTENT_FILENAME = args.content
+STYLE_FILENAME = args.style
 
 a_content, sr = wav2spectrum(CONTENT_FILENAME)
 a_style, sr = wav2spectrum(STYLE_FILENAME)
