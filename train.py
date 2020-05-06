@@ -20,7 +20,6 @@ parser.add_argument('-plot_interval', type=int, help='Number of epoch iterations
 parser.add_argument('-learning_rate', type=float, default = 0.002)
 args = parser.parse_args()
 
-
 CONTENT_FILENAME = args.content
 STYLE_FILENAME = args.style
 
