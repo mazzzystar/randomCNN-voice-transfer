@@ -9,15 +9,20 @@ import math
 import argparse
 cuda = True if torch.cuda.is_available() else False
 
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser()
 parser.add_argument('-content', help='Content input')
+parser.add_argument('-content_weight', help='Content weight. Default is 1e2', default = 1e2)
 parser.add_argument('-style', help='Style input')
+parser.add_argument('-style_weight', help='Style weight. Default is 1', default = 1)
+parser.add_argument('-epochs', help='Number of epoch iterations. Default is 20000', default = 20000)
+parser.add_argument('-print_interval', help='Number of epoch iterations between printing losses', default = 1000)
+parser.add_argument('-plot_interval', help='Number of epoch iterations between plot points', default = 1000)
+parser.add_argument('-learning_rate', default = 0.002)
 args = parser.parse_args()
 
-basepath = "input/"
 
-CONTENT_FILENAME = basepath + args.content
-STYLE_FILENAME = basepath + args.style
+CONTENT_FILENAME = args.content
+STYLE_FILENAME = args.style
 
 a_content, sr = wav2spectrum(CONTENT_FILENAME)
 a_style, sr = wav2spectrum(STYLE_FILENAME)
@@ -46,19 +51,19 @@ a_S = model(a_S_var)
 
 
 # Optimizer
-learning_rate = 0.002
+learning_rate = args.learning_rate
 a_G_var = Variable(torch.randn(a_content_torch.shape) * 1e-3, requires_grad=True)
 if cuda:
     a_G_var = a_G_var.cuda()
 optimizer = torch.optim.Adam([a_G_var])
 
 # coefficient of content and style
-style_param = 1
-content_param = 1e2
+style_param = args.style_weight
+content_param = args.content_weight
 
-num_epochs = 20000
-print_every = 1000
-plot_every = 1000
+num_epochs = args.epochs
+print_every = args.print_interval
+plot_every = args.plot_interval
 
 # Keep track of losses for plotting
 current_loss = 0
