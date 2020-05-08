@@ -18,7 +18,9 @@ parser.add_argument('-epochs', type=int, help='Number of epoch iterations. Defau
 parser.add_argument('-print_interval', type=int, help='Number of epoch iterations between printing losses', default = 1000)
 parser.add_argument('-plot_interval', type=int, help='Number of epoch iterations between plot points', default = 1000)
 parser.add_argument('-learning_rate', type=float, default = 0.002)
+parser.add_argument('-output', help='Output file name. Default is "output"', default = 'output')
 args = parser.parse_args()
+
 
 CONTENT_FILENAME = args.content
 STYLE_FILENAME = args.style
@@ -106,7 +108,7 @@ for epoch in range(1, num_epochs + 1):
 
 
 gen_spectrum = a_G_var.cpu().data.numpy().squeeze()
-gen_audio_C = args.content + "_to_" +args.style + ".wav"
+gen_audio_C = args.output + ".wav"
 spectrum2wav(gen_spectrum, sr, gen_audio_C)
 
 plt.figure()
