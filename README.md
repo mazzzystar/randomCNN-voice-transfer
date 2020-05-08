@@ -38,7 +38,7 @@ Compare the spectrogram of `gen` with `content` and `style`(X axis represents `T
 ```
 pip install -r requirements.txt 
 # remove `CUDA_VISIBLE_DEVICES` when use CPU, though it will be slow. 
-CUDA_VISIBLE_DEVICES=0 python train.py -content input/boy.wav -style input/girl.wav
+CUDA_VISIBLE_DEVICES=0 python train.py -content input/boy18.wav -style input/girl52.wav
 ```
 Tips: change `3x1` CONV to `3x3` CONV can get smoother generated spectrogram.
 
