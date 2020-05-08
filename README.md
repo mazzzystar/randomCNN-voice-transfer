@@ -36,6 +36,7 @@ Compare the spectrogram of `gen` with `content` and `style`(X axis represents `T
 
 ## Reproduce it yourself
 ```
+pip install -r requirements.txt 
 # remove `CUDA_VISIBLE_DEVICES` when use CPU, though it will be slow. 
 CUDA_VISIBLE_DEVICES=0 python train.py -content input/boy.wav -style input/girl.wav
 ```
