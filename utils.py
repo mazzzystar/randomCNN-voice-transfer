@@ -1,8 +1,15 @@
 import librosa
 import numpy as np
 import torch
+import soundfile
 from model import *
+from packaging import version
 
+def librosa_write(outfile, x, sr):
+    if version.parse(librosa.__version__) < version.parse('0.8.0'):
+        librosa.output.write_wav(outfile, x, sr)
+    else:
+        soundfile.write(outfile, x, sr)
 
 def wav2spectrum(filename):
     x, sr = librosa.load(filename)
@@ -21,7 +28,7 @@ def spectrum2wav(spectrum, sr, outfile):
         S = a * np.exp(1j * p)
         x = librosa.istft(S)
         p = np.angle(librosa.stft(x, N_FFT))
-    librosa.output.write_wav(outfile, x, sr)
+    librosa_write(outfile, x, sr)
 
 
 def wav2spectrum_keep_phase(filename):
@@ -40,7 +47,7 @@ def spectrum2wav_keep_phase(spectrum, p, sr, outfile):
         S = a * np.exp(1j * p)
         x = librosa.istft(S)
         p = np.angle(librosa.stft(x, N_FFT))
-    librosa.output.write_wav(outfile, x, sr)
+    librosa_write(outfile, x, sr)
 
 
 def compute_content_loss(a_C, a_G):

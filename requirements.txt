@@ -1,6 +1,8 @@
 pip
 scikit-image
 librosa
+packaging
 pandas
+soundfile
 matplotlib
 torch
