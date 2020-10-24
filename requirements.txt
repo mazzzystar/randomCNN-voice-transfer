@@ -3,3 +3,4 @@ scikit-image
 librosa
 pandas
 matplotlib
+torch
