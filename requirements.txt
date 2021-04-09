@@ -1,5 +1,8 @@
 pip
 scikit-image
-librosa==0.7.2
+librosa
+packaging
 pandas
+soundfile
 matplotlib
+torch
