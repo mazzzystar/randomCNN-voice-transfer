@@ -1,5 +1,5 @@
 pip
 scikit-image
-librosa
+librosa==0.7.2
 pandas
 matplotlib
