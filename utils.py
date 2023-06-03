@@ -13,7 +13,7 @@ def librosa_write(outfile, x, sr):
 
 def wav2spectrum(filename):
     x, sr = librosa.load(filename)
-    S = librosa.stft(x, N_FFT)
+    S = librosa.stft(x, n_fft=N_FFT)
     p = np.angle(S)
 
     S = np.log1p(np.abs(S))
@@ -27,13 +27,13 @@ def spectrum2wav(spectrum, sr, outfile):
     for i in range(50):
         S = a * np.exp(1j * p)
         x = librosa.istft(S)
-        p = np.angle(librosa.stft(x, N_FFT))
+        p = np.angle(librosa.stft(x, n_fft=N_FFT))
     librosa_write(outfile, x, sr)
 
 
 def wav2spectrum_keep_phase(filename):
     x, sr = librosa.load(filename)
-    S = librosa.stft(x, N_FFT)
+    S = librosa.stft(x, n_fft=N_FFT)
     p = np.angle(S)
 
     S = np.log1p(np.abs(S))
@@ -46,7 +46,7 @@ def spectrum2wav_keep_phase(spectrum, p, sr, outfile):
     for i in range(50):
         S = a * np.exp(1j * p)
         x = librosa.istft(S)
-        p = np.angle(librosa.stft(x, N_FFT))
+        p = np.angle(librosa.stft(x, n_fft=N_FFT))
     librosa_write(outfile, x, sr)
 
 
